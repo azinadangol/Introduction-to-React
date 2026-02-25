@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  box-sizing: 0;
+  padding: 0;
+}
+main{
+  display: flex;  
+ /* justify-content: space-between; */
+ gap:17 px;
+ flex-wrap: wrap;
+ 
+}
