@@ -1,39 +1,54 @@
-import classes from './CardItem.module.css';
- 
-export default function CardItem() {
+import { useState } from "react";
+import Card from "./Card";
+import classes from "./CardItem.module.css";
+
+export default function CardItem({
+  name,
+  avatarImg,
+  email,
+  Location,
+  Experience,
+  role,
+}) {
+  const [showDetails, setshowDetails] = useState(false);
+  const [buttonText, setButtonText] = useState("View More");
+  function handletoggledetails() {
+    setshowDetails(!showDetails);
+
+    setButtonText(buttonText === "View More" ? "View Less" : "View More");
+  }
+
   return (
-    <div className={classes.card}>
+    <Card>
       <div className={classes.header}>
-        <img
-          className={classes.avatar}
-          src="https://i.pravatar.cc/150"
-          alt="profile avatar"
-        />
- 
+        <img className={classes.avatar} src={avatarImg} alt="profile avatar" />
+
         <div className={classes.userInfo}>
-          <h2 className={classes.name}>John Doe</h2>
-          <p className={classes.role}>Frontend Developer</p>
+          <h2 className={classes.name}>{name}</h2>
+          <p className={classes.role}>{role}</p>
         </div>
       </div>
- 
-      <div className={classes.details}>
+
+     {showDetails && <div className={classes.details}>
         <div className={classes.detailItem}>
           <span className={classes.label}>Email:</span>
-          <span>john@example.com</span>
+          <span>{email}</span>
         </div>
- 
+
         <div className={classes.detailItem}>
           <span className={classes.label}>Location:</span>
-          <span>Kathmandu, Nepal</span>
+          <span>{Location}</span>
         </div>
- 
+
         <div className={classes.detailItem}>
           <span className={classes.label}>Experience:</span>
-          <span>3 Years</span>
+          <span>{Experience}</span>
         </div>
- 
-        <button className={classes.button}>View More</button>
-      </div>
-    </div>
+      </div>}
+
+      <button className={classes.button} onClick={handletoggledetails}>
+        {buttonText}
+      </button>
+    </Card>
   );
 }

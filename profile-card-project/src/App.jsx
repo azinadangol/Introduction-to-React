@@ -1,6 +1,8 @@
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import CardItem from "./Components/card/CardItem";
+import CardList from "./Components/card/CardList";
+
+
  
 function App() {
   return (
@@ -8,13 +10,7 @@ function App() {
     <>
    
       <Header />
-      <main>
-      <CardItem/>
-      <CardItem/>
-      <CardItem/>
-      <CardItem/>
-     
-      </main>
+      <CardList />
        <Footer />
     </>
   );
