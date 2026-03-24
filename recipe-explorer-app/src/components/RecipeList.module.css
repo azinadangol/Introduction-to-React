@@ -1,0 +1,7 @@
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;  /* allows new cards to wrap to next line */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
